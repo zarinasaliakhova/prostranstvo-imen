@@ -1,0 +1,32 @@
+calls = 0 #globalnaya peremennaya dlya podscheta vyzovov f
+def count_calls(): #f dlya podscheta vyzovov, uvelichivaet znachenie calls na 1 pri kazhdom vyzove
+    global calls
+    calls += 1
+
+def string_info(string): #f dlya raboty so strokoi:prinimaet stroku,schitaet dlinu,privodit k verkhnemu registru,
+    # k nizhnemu i vozvrashaet kortezh c etimi infos + ona vyzyvaet count_calls dlya obnovleniya schetchika
+    count_calls()
+    length = len(string)
+    upper = string.upper()
+    lower = string.lower()
+    return (length, upper, lower)
+def is_contains(string, list_to_search): #f dlya proverki est li stroka v spiske, ignoriruet registr,
+    # tozhe vyzyvaet count_calls
+    count_calls()
+    for i in list_to_search:
+        if i == string:
+            return True
+        else:
+            return False
+
+
+
+print(string_info('Capybara'))
+print(string_info('Armageddon'))
+print(is_contains('Urban', ['ban', 'BaNaN', 'urBAN']))
+print(is_contains('cycle', ['recycling', 'cyclic']))
+
+print(calls)
+
+
+
